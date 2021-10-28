@@ -4,7 +4,7 @@
       class="card-image waves-effect waves-block waves-light tb-body-wrapper"
     >
       <img class="responsive-img wp-post-img" :src="src" />
-      <h6 class="card-text home">{{ title }}</h6>
+      <h6 class="card-text home">{{ "paz" }}</h6>
     </div>
   </div>
 </template>
