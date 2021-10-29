@@ -12,7 +12,7 @@
         <li class="tab">
           <a v-on:click="updateToG" href="#tab">Gin</a>
         </li>
-        <li class="tab"><a href="#tab">Rum</a></li>
+        <li class="tab"><a v-on:click="updateToR" href="#tab">Rum</a></li>
         <li class="tab"><a href="#tab">Tequila</a></li>
         <li v-on:click="updateToV" class="tab"><a href="#tab">Vodka</a></li>
       </ul>
@@ -22,8 +22,6 @@
 
 <script>
 import M from "materialize-css";
-import VodkaList from "../cocktail/VodkaList.vue";
-import GinList from "../cocktail/GinList.vue";
 
 export default {
   name: "Navbar",
@@ -31,16 +29,15 @@ export default {
     M.AutoInit();
   },
   props: ["component"],
-  components: {
-    VodkaList,
-    GinList,
-  },
   methods: {
     updateToG() {
       this.$emit("changeComponent", "GinList");
     },
     updateToV() {
       this.$emit("changeComponent", "VodkaList");
+    },
+    updateToR() {
+      this.$emit("changeComponent", "RumList");
     },
   },
 };
