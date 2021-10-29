@@ -1,8 +1,8 @@
 <template>
   <nav class="nav-extended purple">
-    <div class="nav-wrapper">
-      <a href="#" class="logo brand-logo"
-        >Cocktails
+    <div class="nav-wrapper search">
+      <a href="#" class="logo brand-logo">
+        Cocktails
         <i class="fas fa-cocktail" title="Cocktail"></i>
       </a>
     </div>
@@ -32,19 +32,19 @@ export default {
   },
   methods: {
     updateToG() {
-      this.$emit("changeComponent", "ginList");
+      this.$emit("changeShownList", "ginList");
     },
     updateToV() {
-      this.$emit("changeComponent", "vodkaList");
+      this.$emit("changeShownList", "vodkaList");
     },
     updateToR() {
-      this.$emit("changeComponent", "rumList");
+      this.$emit("changeShownList", "rumList");
     },
     updateToT() {
-      this.$emit("changeComponent", "tequilaList");
+      this.$emit("changeShownList", "tequilaList");
     },
     updateToAll() {
-      this.$emit("changeComponent", "all");
+      this.$emit("changeShownList", "all");
     },
   },
 };
