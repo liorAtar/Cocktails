@@ -10,6 +10,7 @@ import Navbar from "./layout/Navbar.vue";
 import VodkaList from "./cocktail/VodkaList.vue";
 import GinList from "./cocktail/GinList.vue";
 import RumList from "./cocktail/RumList.vue";
+import TequilaList from "./cocktail/TequilaList.vue";
 
 import M from "materialize-css";
 
@@ -28,6 +29,7 @@ export default {
     VodkaList,
     GinList,
     RumList,
+    TequilaList,
   },
   methods: {
     updateComponent(component) {
