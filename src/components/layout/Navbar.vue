@@ -13,7 +13,7 @@
           <a v-on:click="updateToG" href="#tab">Gin</a>
         </li>
         <li class="tab"><a v-on:click="updateToR" href="#tab">Rum</a></li>
-        <li class="tab"><a href="#tab">Tequila</a></li>
+        <li class="tab"><a v-on:click="updateToT" href="#tab">Tequila</a></li>
         <li v-on:click="updateToV" class="tab"><a href="#tab">Vodka</a></li>
       </ul>
     </div>
@@ -38,6 +38,9 @@ export default {
     },
     updateToR() {
       this.$emit("changeComponent", "RumList");
+    },
+    updateToT() {
+      this.$emit("changeComponent", "TequilaList");
     },
   },
 };
