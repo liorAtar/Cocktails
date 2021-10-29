@@ -1,24 +1,36 @@
 <template>
   <div>
-    <Navbar />
-    <VodkaList />
+    <Navbar v-on:changeComponent="updateComponent($event)" />
+    <component v-bind:is="component"></component>
   </div>
 </template>
 
 <script>
 import Navbar from "./layout/Navbar.vue";
 import VodkaList from "./cocktail/VodkaList.vue";
+import GinList from "./cocktail/GinList.vue";
 
 import M from "materialize-css";
 
 export default {
   name: "HomePage",
+  data() {
+    return {
+      component: "VodkaList",
+    };
+  },
   mounted() {
     M.AutoInit();
   },
   components: {
     Navbar,
     VodkaList,
+    GinList,
+  },
+  methods: {
+    updateComponent(component) {
+      this.component = component;
+    },
   },
 };
 </script>

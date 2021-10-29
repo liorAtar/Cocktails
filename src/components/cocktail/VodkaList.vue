@@ -21,11 +21,11 @@ import Vue from "vue";
 import axios from "axios";
 import VueAxios from "vue-axios";
 import M from "materialize-css";
-import Card from "../layout/Card.vue";
+import Card from "../Card.vue";
 
 Vue.use(VueAxios, axios);
 export default {
-  name: "CocktailsList",
+  name: "VodkaList",
   data() {
     return { vodkaList: undefined };
   },
@@ -38,7 +38,6 @@ export default {
       .get("https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Vodka")
       .then((res) => {
         this.vodkaList = res.data.drinks;
-        console.log(this.vodkaList);
       });
   },
 };
