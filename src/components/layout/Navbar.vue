@@ -8,13 +8,15 @@
     </div>
     <div class="nav-content">
       <ul class="tabs tabs-transparent">
-        <li class="tab"><a class="active" href="#tab">All</a></li>
+        <li class="tab">
+          <a v-on:click="updateToAll" class="active" href="#tab">All</a>
+        </li>
         <li class="tab">
           <a v-on:click="updateToG" href="#tab">Gin</a>
         </li>
         <li class="tab"><a v-on:click="updateToR" href="#tab">Rum</a></li>
         <li class="tab"><a v-on:click="updateToT" href="#tab">Tequila</a></li>
-        <li v-on:click="updateToV" class="tab"><a href="#tab">Vodka</a></li>
+        <li class="tab"><a v-on:click="updateToV" href="#tab">Vodka</a></li>
       </ul>
     </div>
   </nav>
@@ -28,19 +30,21 @@ export default {
   mounted() {
     M.AutoInit();
   },
-  props: ["component"],
   methods: {
     updateToG() {
-      this.$emit("changeComponent", "GinList");
+      this.$emit("changeComponent", "ginList");
     },
     updateToV() {
-      this.$emit("changeComponent", "VodkaList");
+      this.$emit("changeComponent", "vodkaList");
     },
     updateToR() {
-      this.$emit("changeComponent", "RumList");
+      this.$emit("changeComponent", "rumList");
     },
     updateToT() {
-      this.$emit("changeComponent", "TequilaList");
+      this.$emit("changeComponent", "tequilaList");
+    },
+    updateToAll() {
+      this.$emit("changeComponent", "all");
     },
   },
 };
