@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="home-page">
+    <div></div>
     <Navbar
       v-on:changeShownList="updateShownList($event)"
       v-on:searchedClicked="updateDrinksList($event)"
@@ -95,6 +96,7 @@ export default {
           }
         });
       } catch (err) {
+        alert(err);
         console.log(err);
       }
     },
@@ -134,4 +136,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.home-page {
+  height: 100%;
+  background-image: url(https://t3.ftcdn.net/jpg/03/37/47/18/360_F_337471880_xT2seC05bDCso4KKttXoAlWAwduvMoD9.jpg);
+}
 </style>

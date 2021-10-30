@@ -5,7 +5,7 @@
         <div class="section">
           <DrinkCard
             href="#modal1"
-            class="col s12 m6 l4 modal-trigger"
+            class="col s6 m4 l3 modal-trigger"
             v-for="item in drinksList"
             :key="item.idDrink"
             :src="item.strDrinkThumb"
@@ -73,6 +73,7 @@ export default {
           }
         }
       } catch (err) {
+        alert(err);
         console.log(err);
       }
     },

@@ -2,14 +2,22 @@
   <div class="tabs-holder">
     <ul class="tabs tabs-transparent">
       <li class="tab">
-        <a v-on:click="updateToAll" class="active" href="#tab">All</a>
+        <a v-on:click="updateToAll" class="active costume-tab" href="#tab"
+          >All</a
+        >
       </li>
       <li class="tab">
         <a v-on:click="updateToG" href="#tab">Gin</a>
       </li>
-      <li class="tab"><a v-on:click="updateToR" href="#tab">Rum</a></li>
-      <li class="tab"><a v-on:click="updateToT" href="#tab">Tequila</a></li>
-      <li class="tab"><a v-on:click="updateToV" href="#tab">Vodka</a></li>
+      <li class="tab">
+        <a v-on:click="updateToR" class="costume-tab" href="#tab">Rum</a>
+      </li>
+      <li class="tab">
+        <a v-on:click="updateToT" class="costume-tab" href="#tab">Tequila</a>
+      </li>
+      <li class="tab">
+        <a v-on:click="updateToV" class="costume-tab" href="#tab">Vodka</a>
+      </li>
     </ul>
   </div>
 </template>
@@ -41,3 +49,12 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.tabs-holder {
+  padding-top: 10px;
+}
+.costume-tab {
+  padding: 0 10px !important;
+}
+</style>
