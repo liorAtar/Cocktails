@@ -1,30 +1,27 @@
 <template>
-  <nav class="black">
-    <div class="nav-wrapper">
-      <form>
-        <div class="input-field">
-          <input
-            id="search"
-            v-on:keyup="serachClicked"
-            v-model="searchtext"
-            type="search"
-            required
-          />
-          <label class="label-icon" for="search"
-            ><i class="material-icons">search</i></label
-          >
-          <i class="material-icons">close</i>
-        </div>
-      </form>
+  <form class="inline-search">
+    <div class="input-field place-text">
+      <input
+        class="input"
+        id="search"
+        v-on:keyup="serachClicked"
+        v-model="searchtext"
+        type="search"
+        required
+      />
+      <label class="label-icon" for="search"
+        ><i class="material-icons">search</i></label
+      >
+      <i class="material-icons">close</i>
     </div>
-  </nav>
+  </form>
 </template>
 
 <script>
 import M from "materialize-css";
 
 export default {
-  name: "searchtext",
+  name: "Search",
   mounted() {
     M.AutoInit();
   },
@@ -61,4 +58,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.inline-search {
+  margin-left: auto;
+  margin-right: 1rem;
+  width: 35%;
+}
+.place-text {
+  padding-left: 4rem;
+}
 </style>

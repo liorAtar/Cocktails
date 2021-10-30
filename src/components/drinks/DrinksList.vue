@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row">
         <div class="section">
-          <Card
+          <DrinkCard
             href="#modal1"
             class="col s12 m6 l4 modal-trigger"
             v-for="item in drinksList"
@@ -12,7 +12,7 @@
             :title="item.strDrink"
             v-on:sendCurrent="getCurrentCard($event)"
           >
-          </Card>
+          </DrinkCard>
           <DrinkModal
             :drink="this.currentDrink"
             :drinkIngredients="this.currentDrinkIngredients"
@@ -29,13 +29,13 @@ import Vue from "vue";
 import axios from "axios";
 import VueAxios from "vue-axios";
 import M from "materialize-css";
-import Card from "./Card.vue";
-import DrinkModal from "./DrinkModal.vue";
+import DrinkCard from "./DrinkCard.vue";
+import DrinkModal from "../pages/DrinkModal.vue";
 
 Vue.use(VueAxios, axios);
 
 export default {
-  name: "ItemsList",
+  name: "DrinksList",
   data() {
     return {
       currentDrink: {},
@@ -45,7 +45,7 @@ export default {
   },
   props: ["drinksList"],
   components: {
-    Card,
+    DrinkCard,
     DrinkModal,
   },
   mounted() {

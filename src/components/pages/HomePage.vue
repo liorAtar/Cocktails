@@ -1,18 +1,18 @@
 <template>
   <div>
-    <Navbar v-on:changeShownList="updateShownList($event)" />
-    <Search
+    <Navbar
+      v-on:changeShownList="updateShownList($event)"
+      v-on:searchedClicked="updateDrinksList($event)"
       :currentListForSearch="currentListForSearch"
-      v-on:serachClicked="updateDrinksList($event)"
     />
-    <ItemsList :drinksList="drinksList" />
+    <DrinksList :drinksList="drinksList" />
   </div>
 </template>
 
 <script>
-import Navbar from "./layout/Navbar.vue";
-import Search from "./Search.vue";
-import ItemsList from "./ItemsList.vue";
+import Navbar from "../navbar/Navbar.vue";
+import Search from "../navbar/Search.vue";
+import DrinksList from "../drinks/DrinksList.vue";
 
 import Vue from "vue";
 import axios from "axios";
@@ -70,7 +70,7 @@ export default {
   },
   components: {
     Navbar,
-    ItemsList,
+    DrinksList,
     Search,
   },
   methods: {
