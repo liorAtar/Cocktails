@@ -26,6 +26,7 @@ export default {
   data() {
     return {
       currentListForSearch: [],
+      fetchDrinksList: [],
       drinksList: [],
       vodkaList: [],
       ginList: [],
@@ -34,87 +35,31 @@ export default {
       allList: [],
     };
   },
-  mounted() {
+  async mounted() {
     M.AutoInit();
 
     // Check if the vodka list is empty
     if (this.vodkaList.length === 0) {
-      Vue.axios
-        .get("https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Vodka")
-        .then((res) => {
-          this.vodkaList = res.data.drinks;
-
-          // Check if drink already exist
-          this.vodkaList.forEach((drink) => {
-            var exists = this.allList.some((field) => {
-              return field.idDrink === drink.idDrink;
-            });
-
-            if (!exists) {
-              this.allList.push(drink);
-            }
-          });
-        });
+      await this.fetchDrinks("vodka");
+      this.vodkaList = this.fetchDrinksList;
     }
 
     // Check if the gin list is empty
     if (this.ginList.length === 0) {
-      Vue.axios
-        .get("https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Gin")
-        .then((res) => {
-          this.ginList = res.data.drinks;
-
-          // Check if drink already exist
-          this.ginList.forEach((drink) => {
-            var exists = this.allList.some((field) => {
-              return field.idDrink === drink.idDrink;
-            });
-
-            if (!exists) {
-              this.allList.push(drink);
-            }
-          });
-        });
+      await this.fetchDrinks("gin");
+      this.ginList = this.fetchDrinksList;
     }
 
     // Check if the tequila list is empty
     if (this.tequilaList.length === 0) {
-      Vue.axios
-        .get("https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Tequila")
-        .then((res) => {
-          this.tequilaList = res.data.drinks;
-
-          // Check if drink already exist
-          this.tequilaList.forEach((drink) => {
-            var exists = this.allList.some((field) => {
-              return field.idDrink === drink.idDrink;
-            });
-
-            if (!exists) {
-              this.allList.push(drink);
-            }
-          });
-        });
+      await this.fetchDrinks("tequila");
+      this.tequilaList = this.fetchDrinksList;
     }
 
     // Check if the rum list is empty
     if (this.rumList.length === 0) {
-      Vue.axios
-        .get("https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Rum")
-        .then((res) => {
-          this.rumList = res.data.drinks;
-
-          // Check if drink already exist
-          this.rumList.forEach((drink) => {
-            var exists = this.allList.some((field) => {
-              return field.idDrink === drink.idDrink;
-            });
-
-            if (!exists) {
-              this.allList.push(drink);
-            }
-          });
-        });
+      await this.fetchDrinks("rum");
+      this.rumList = this.fetchDrinksList;
     }
 
     // Update the first list to show to all
@@ -129,6 +74,30 @@ export default {
     Search,
   },
   methods: {
+    async fetchDrinks(drinkType) {
+      this.fetchDrinksList = [];
+      try {
+        let res = await axios.get(
+          `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${drinkType}`
+        );
+        this.fetchDrinksList = await JSON.parse(
+          JSON.stringify(res.data.drinks)
+        );
+
+        // Check if drink already exist
+        await this.fetchDrinksList.forEach((drink) => {
+          var exists = this.allList.some((field) => {
+            return field.idDrink === drink.idDrink;
+          });
+
+          if (!exists) {
+            this.allList.push(drink);
+          }
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    },
     // Update the shown list according to selected category
     updateShownList(requiredList) {
       // Check if the current tab is gin
