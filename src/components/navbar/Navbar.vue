@@ -1,25 +1,10 @@
 <template>
   <nav class="nav-extended purple">
     <div class="nav-wrapper search">
-      <a href="#" class="logo brand-logo">
-        Cocktails
-        <i class="fas fa-cocktail" title="Cocktail"></i>
-      </a>
+      <Logo />
     </div>
     <div class="nav-content navbar-flex">
-      <div class="tabs-holder">
-        <ul class="tabs tabs-transparent">
-          <li class="tab">
-            <a v-on:click="updateToAll" class="active" href="#tab">All</a>
-          </li>
-          <li class="tab">
-            <a v-on:click="updateToG" href="#tab">Gin</a>
-          </li>
-          <li class="tab"><a v-on:click="updateToR" href="#tab">Rum</a></li>
-          <li class="tab"><a v-on:click="updateToT" href="#tab">Tequila</a></li>
-          <li class="tab"><a v-on:click="updateToV" href="#tab">Vodka</a></li>
-        </ul>
-      </div>
+      <Tabs v-on:changeShownList="updateListName($event)" />
       <Search
         :currentListForSearch="this.currentListForSearch"
         v-on:serachClicked="updateSearchClicked($event)"
@@ -29,7 +14,9 @@
 </template>
 
 <script>
-import Search from "../Search.vue";
+import Logo from "./Logo.vue";
+import Tabs from "./Tabs.vue";
+import Search from "./Search.vue";
 import M from "materialize-css";
 
 export default {
@@ -58,9 +45,14 @@ export default {
     updateSearchClicked(list) {
       this.$emit("searchedClicked", list);
     },
+    updateListName(listName) {
+      this.$emit("changeShownList", listName);
+    },
   },
   components: {
     Search,
+    Tabs,
+    Logo,
   },
 };
 </script>

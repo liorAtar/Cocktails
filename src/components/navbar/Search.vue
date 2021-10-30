@@ -1,8 +1,8 @@
 <template>
   <form class="inline-search">
-    <div class="input-field">
+    <div class="input-field place-text">
       <input
-        class="place-text"
+        class="input"
         id="search"
         v-on:keyup="serachClicked"
         v-model="searchtext"
@@ -21,7 +21,7 @@
 import M from "materialize-css";
 
 export default {
-  name: "searchtext",
+  name: "Search",
   mounted() {
     M.AutoInit();
   },
@@ -64,6 +64,6 @@ export default {
   width: 35%;
 }
 .place-text {
-  width: 50%;
+  padding-left: 4rem;
 }
 </style>

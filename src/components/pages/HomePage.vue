@@ -5,18 +5,14 @@
       v-on:searchedClicked="updateDrinksList($event)"
       :currentListForSearch="currentListForSearch"
     />
-    <!-- <Search
-      :currentListForSearch="currentListForSearch"
-      v-on:serachClicked="updateDrinksList($event)"
-    /> -->
     <ItemsList :drinksList="drinksList" />
   </div>
 </template>
 
 <script>
 import Navbar from "../navbar/Navbar.vue";
-import Search from "../Search.vue";
-import ItemsList from "../ItemsList.vue";
+import Search from "../navbar/Search.vue";
+import ItemsList from "../drinks/DrinksList.vue";
 
 import Vue from "vue";
 import axios from "axios";
