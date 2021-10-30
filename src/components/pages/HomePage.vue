@@ -10,9 +10,9 @@
 </template>
 
 <script>
-import Navbar from "./layout/Navbar.vue";
-import Search from "./Search.vue";
-import ItemsList from "./ItemsList.vue";
+import Navbar from "../navbar/Navbar.vue";
+import Search from "../Search.vue";
+import ItemsList from "../ItemsList.vue";
 
 import Vue from "vue";
 import axios from "axios";
