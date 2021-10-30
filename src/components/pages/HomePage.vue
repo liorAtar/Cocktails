@@ -1,10 +1,14 @@
 <template>
   <div>
-    <Navbar v-on:changeShownList="updateShownList($event)" />
-    <Search
+    <Navbar
+      v-on:changeShownList="updateShownList($event)"
+      v-on:searchedClicked="updateDrinksList($event)"
+      :currentListForSearch="currentListForSearch"
+    />
+    <!-- <Search
       :currentListForSearch="currentListForSearch"
       v-on:serachClicked="updateDrinksList($event)"
-    />
+    /> -->
     <ItemsList :drinksList="drinksList" />
   </div>
 </template>

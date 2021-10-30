@@ -20,20 +20,16 @@
           <li class="tab"><a v-on:click="updateToV" href="#tab">Vodka</a></li>
         </ul>
       </div>
-      <form class="inline-search">
-        <div class="input-field">
-          <input id="search" type="search" required />
-          <label class="label-icon" for="search"
-            ><i class="material-icons">search</i></label
-          >
-          <i class="material-icons">close</i>
-        </div>
-      </form>
+      <Search
+        :currentListForSearch="this.currentListForSearch"
+        v-on:serachClicked="updateSearchClicked($event)"
+      />
     </div>
   </nav>
 </template>
 
 <script>
+import Search from "../Search.vue";
 import M from "materialize-css";
 
 export default {
@@ -41,6 +37,8 @@ export default {
   mounted() {
     M.AutoInit();
   },
+  props: ["currentListForSearch"],
+
   methods: {
     updateToG() {
       this.$emit("changeShownList", "ginList");
@@ -57,6 +55,12 @@ export default {
     updateToAll() {
       this.$emit("changeShownList", "all");
     },
+    updateSearchClicked(list) {
+      this.$emit("searchedClicked", list);
+    },
+  },
+  components: {
+    Search,
   },
 };
 </script>
@@ -68,11 +72,6 @@ export default {
 }
 .navbar-flex {
   display: flex;
-}
-.inline-search {
-  margin-left: auto;
-  margin-right: 1rem;
-  width: 35%;
 }
 .tabs-holder {
   width: 50%;
