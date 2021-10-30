@@ -35,7 +35,7 @@ import DrinkModal from "../pages/DrinkModal.vue";
 Vue.use(VueAxios, axios);
 
 export default {
-  name: "ItemsList",
+  name: "DrinksList",
   data() {
     return {
       currentDrink: {},

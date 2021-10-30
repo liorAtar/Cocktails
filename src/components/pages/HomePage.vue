@@ -5,14 +5,14 @@
       v-on:searchedClicked="updateDrinksList($event)"
       :currentListForSearch="currentListForSearch"
     />
-    <ItemsList :drinksList="drinksList" />
+    <DrinksList :drinksList="drinksList" />
   </div>
 </template>
 
 <script>
 import Navbar from "../navbar/Navbar.vue";
 import Search from "../navbar/Search.vue";
-import ItemsList from "../drinks/DrinksList.vue";
+import DrinksList from "../drinks/DrinksList.vue";
 
 import Vue from "vue";
 import axios from "axios";
@@ -70,7 +70,7 @@ export default {
   },
   components: {
     Navbar,
-    ItemsList,
+    DrinksList,
     Search,
   },
   methods: {

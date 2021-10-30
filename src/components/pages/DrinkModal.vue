@@ -2,47 +2,28 @@
   <div id="modal1" class="modal">
     <div class="modal-content">
       <div class="col s12 m12">
-        <h2 class="header">{{ drink.strDrink }}</h2>
+        <h4 class="header">{{ drink.strDrink }}</h4>
         <div class="card horizontal">
           <div class="card-image">
             <img :src="drink.strDrinkThumb" />
           </div>
-
           <div class="card-content">
-            <h5>Ingredients</h5>
-
-            <div class="row">
-              <div class="col s12"></div>
-              <div class="col s6">
-                <p v-for="(ingredient, index) in drinkIngredients" :key="index">
-                  {{ ingredient }}
-                </p>
-              </div>
-              <div class="col s6">
-                <p v-for="(measure, index) in drinkMeasurements" :key="index">
-                  {{ measure }}
-                </p>
-              </div>
-            </div>
-            <p>{{ drink.strGlass }}</p>
+            <DrinkInfo
+              :ingredients="drinkIngredients"
+              :measurements="drinkMeasurements"
+            />
           </div>
         </div>
-        <ul class="collapsible">
-          <li>
-            <div class="collapsible-header">
-              <i class="material-icons">filter_drama</i>Instructions
-            </div>
-            <div class="collapsible-body">
-              <span>{{ drink.strInstructions }}</span>
-            </div>
-          </li>
-        </ul>
+        <p>Glass Type: {{ drink.strGlass }}</p>
+        <Instructions :instructions="drink.strInstructions" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import DrinkInfo from "../drinks/DrinkIngredients.vue";
+import Instructions from "../drinks/Instructions.vue";
 import M from "materialize-css";
 
 export default {
@@ -59,6 +40,10 @@ export default {
     drink: Object,
     drinkIngredients: Array,
     drinkMeasurements: Array,
+  },
+  components: {
+    Instructions,
+    DrinkInfo,
   },
   methods: {},
 };
