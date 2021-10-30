@@ -1,8 +1,9 @@
 <template>
-  <a href="#" class="logo brand-logo">
-    Cocktails
-    <i class="fas fa-cocktail" title="Cocktail"></i>
-  </a>
+  <div class="cocktail-logo-container">
+    <span class="cocktail-title">Cocktail</span>
+    <i class="fas fa-cocktail cocktail-icon" title="Cocktail"></i>
+  </div>
+  <!-- <a href="#" class="logo brand-logo logo-pos"> </a> -->
 </template>
 
 <script>
@@ -15,3 +16,17 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.cocktail-logo-container {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+}
+.cocktail-title {
+  margin-right: 0.5rem;
+}
+.cocktail-icon {
+  height: auto;
+}
+</style>

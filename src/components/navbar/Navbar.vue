@@ -1,14 +1,16 @@
 <template>
-  <nav class="nav-extended purple">
-    <div class="nav-wrapper search">
+  <nav class="nav-extended black">
+    <div class="nav-wrapper navbar-flex">
       <Logo />
+      <div>
+        <Search
+          :currentListForSearch="this.currentListForSearch"
+          v-on:serachClicked="updateSearchClicked($event)"
+        />
+      </div>
     </div>
-    <div class="nav-content navbar-flex">
+    <div class="nav-content">
       <Tabs v-on:changeShownList="updateListName($event)" />
-      <Search
-        :currentListForSearch="this.currentListForSearch"
-        v-on:serachClicked="updateSearchClicked($event)"
-      />
     </div>
   </nav>
 </template>
@@ -59,13 +61,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.logo {
-  margin-left: 10px;
-}
 .navbar-flex {
   display: flex;
-}
-.tabs-holder {
-  width: 50%;
+  justify-content: space-between;
 }
 </style>

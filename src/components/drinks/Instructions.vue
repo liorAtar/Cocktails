@@ -2,7 +2,7 @@
   <ul class="collapsible">
     <li>
       <div class="collapsible-header">
-        <i class="material-icons">filter_drama</i>Instructions
+        <i class="fas fa-book-open"></i>Instructions
       </div>
       <div class="collapsible-body">
         <span>{{ instructions }}</span>

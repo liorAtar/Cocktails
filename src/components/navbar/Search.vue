@@ -60,8 +60,8 @@ export default {
 <style scoped>
 .inline-search {
   margin-left: auto;
-  margin-right: 1rem;
-  width: 35%;
+  padding-top: 10px;
+  justify-content: flex-start;
 }
 .place-text {
   padding-left: 4rem;
